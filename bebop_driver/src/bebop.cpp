@@ -550,15 +550,14 @@ void Bebop::Move(const double &roll, const double &pitch, const double &gaz_spee
 }
 
 // in degrees
-    void Bebop::MoveCamera(const double &tilt, const double &pan)
-    {
-      ThrowOnInternalError("Camera Move Failure");
-      ThrowOnCtrlError(device_controller_ptr_->aRDrone3->setCameraOrientationV2(
-              device_controller_ptr_->aRDrone3,
-              static_cast<float>(tilt),
-              static_cast<float>(pan)));
-    }
-
+void Bebop::MoveCamera(const double &tilt, const double &pan)
+{
+  ThrowOnInternalError("Camera Move Failure");
+  ThrowOnCtrlError(device_controller_ptr_->aRDrone3->setCameraOrientationV2(
+          device_controller_ptr_->aRDrone3,
+          static_cast<float>(tilt),
+          static_cast<float>(pan)));
+}
 
 uint32_t Bebop::GetFrontCameraFrameWidth() const
 {
